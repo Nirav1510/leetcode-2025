@@ -13,5 +13,6 @@ bool check(vector<int>& nums) {
   if(nums[n-1]>nums[0]){
       count++;
   }
+  
   return count<=1;
 }
