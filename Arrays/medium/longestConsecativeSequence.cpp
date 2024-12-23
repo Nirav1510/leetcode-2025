@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/longest-consecutive-sequence/description/
+
 int longestConsecutive(vector<int>& nums) {
     int ans = 0;
     unordered_set<int> s(nums.begin(),nums.end());
