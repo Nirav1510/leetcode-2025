@@ -21,5 +21,6 @@ int singleNonDuplicate(vector<int>& a) {
         }
         
     }
+    
     return -1;
 }
