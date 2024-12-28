@@ -1,3 +1,5 @@
+// https://www.geeksforgeeks.org/problems/find-nth-root-of-m5843/1
+
 long long int myPow(int x, int n) {
     long long int ans = 1;
 
