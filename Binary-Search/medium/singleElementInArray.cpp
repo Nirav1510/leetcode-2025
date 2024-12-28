@@ -14,7 +14,7 @@ int singleNonDuplicate(vector<int>& a) {
             return a[mid];
         }
 
-        if((mid%2 == 0 && a[mid] == a[mid+1]) || (mid%2 ==1 && a[mid] == a[mid-1])){
+        if((mid%2 == 0 && a[mid] == a[mid+1]) || (mid%2 == 1 && a[mid] == a[mid-1])){
             low = mid+1;
         }else{
             high=mid-1;
