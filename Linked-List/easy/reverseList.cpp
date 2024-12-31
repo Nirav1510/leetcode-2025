@@ -19,5 +19,6 @@ ListNode* reverseListRecursive(ListNode* head) {
     ListNode *newHead = reverseListRecursive(head->next);
     head->next->next = head;
     head->next = NULL;
+    
     return newHead;
 }
