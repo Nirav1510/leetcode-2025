@@ -24,12 +24,13 @@ bool isPalindrome(ListNode* head) {
     ListNode *secondHalf = reverseList(slow);
     ListNode *itr1 = head, *itr2 = secondHalf;
 
-    while(itr2){
+    while(itr2 && itr1){
         if(itr1->val != itr2->val){
             return false;
         }
         itr1 = itr1->next;
         itr2 = itr2->next;
     }
+
     return true;
 }
