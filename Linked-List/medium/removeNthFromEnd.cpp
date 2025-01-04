@@ -3,7 +3,7 @@
 ListNode* removeNthFromEnd(ListNode* head, int n) {
     ListNode *slow = head, *fast = head;
 
-    while(n--){
+    while(n-- && fast){
         fast = fast->next;
     }
 
