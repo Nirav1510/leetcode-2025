@@ -9,7 +9,7 @@ ListNode* deleteDuplicates(ListNode* head) {
     ListNode *prev = dummy, *curr = head;
 
     while(curr){
-        while(curr->next && prev->next->val == curr->next->val){
+        while(curr->next && curr->val == curr->next->val){
             curr = curr->next;
         }
 
