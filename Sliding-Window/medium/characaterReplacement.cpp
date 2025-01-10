@@ -3,9 +3,8 @@
 int characterReplacement(string s, int k) {
     int n = s.length();
     unordered_map<char, int> charCount; 
-    int maxFreq = 0;                    
-    int maxLength = 0;                  
-    int start = 0;                      
+
+    int maxFreq = 0, maxLength = 0, start = 0;                      
 
     for (int end = 0; end < n; end++) {
         charCount[s[end]]++;
