@@ -1,6 +1,8 @@
 // https://leetcode.com/problems/subarrays-with-k-different-integers/
 
 int solve(vector<int> &nums, int k){
+    if(k == 0) return 0;
+    
     unordered_map<int,int> mp;
     int ans = 0, i = 0, j = 0, n = nums.size();
 
