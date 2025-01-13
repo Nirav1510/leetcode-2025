@@ -5,6 +5,7 @@ using namespace std;
 
 bool isValid(string s) {
     stack<char> st; 
+    
     for (char c : s) { 
         if (c == '(' || c == '{' || c == '[') { 
             st.push(c); 
@@ -18,6 +19,7 @@ bool isValid(string s) {
             st.pop();
         }
     }
+
     return st.empty();
 }
 
