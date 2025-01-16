@@ -11,7 +11,7 @@ int searchInRotatedSortedArray(vector<int>& a, int k) {
         }
 
         if(a[low] <= a[mid]){
-            if(a[low]<=k && k <= a[mid]){
+            if(a[low] <= k && k <= a[mid]){
                 high=mid-1;
             }else{
                 low=mid+1;
