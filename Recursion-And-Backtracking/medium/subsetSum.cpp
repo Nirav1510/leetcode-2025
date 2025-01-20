@@ -17,3 +17,21 @@ vector<int> subsetSums(vector<int>& arr) {
     solve(arr, 0, n-1, ans, 0);
     return ans;
 }
+
+
+// iterative approach
+vector<int> subsetSums(vector<int>& arr) {
+    int n = arr.size();
+    vector<int> ans;
+    
+    ans.push_back(0);
+    
+    for(int i=0;i<n;i++){
+        int m = ans.size();
+        for(int j=0;j<m;j++){
+            ans.push_back(ans[j] + arr[i]);
+        }
+    }
+    
+    return ans;
+}
