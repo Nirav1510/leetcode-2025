@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/generate-parentheses/
+
 void solve(int open, int close, string &op, vector<string> &ans){
     if(open == 0 && close == 0){
         ans.push_back(op);
