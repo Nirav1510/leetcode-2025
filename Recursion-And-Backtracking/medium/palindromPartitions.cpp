@@ -17,10 +17,10 @@ void solve(int start, string &s, vector<string> &op, vector<vector<string>> &ans
         return;
     }
 
-    for(int i=start;i<s.size();i++){
-        if(isPalindrome(s, start, i)){
-            op.push_back(s.substr(start, i-start+1));
-            solve(i+1, s, op, ans);
+    for(int end=start;end<s.size();end++){
+        if(isPalindrome(s, start, end)){
+            op.push_back(s.substr(start, end-start+1));
+            solve(end+1, s, op, ans);
             op.pop_back();
         }
     }
