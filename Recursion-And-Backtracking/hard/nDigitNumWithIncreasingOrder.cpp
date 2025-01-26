@@ -38,3 +38,30 @@ vector<int> increasingNumbers(int n) {
     
     return ans;
 }
+
+// ------ Another Solution ------
+
+void solve(int n, int start, int curr, vector<int> &ans){
+    if(n == 0){
+        ans.push_back(curr);
+        return;
+    }
+    
+    for(int i=start;i<10;i++){
+        solve(n-1, i+1, curr*10 + i, ans);
+    }
+}
+
+vector<int> increasingNumbers(int n) {
+    vector<int> ans;
+    if(n == 1){
+        for(int i=0;i<10;i++){
+            ans.push_back(i);
+        }
+        return ans;
+    }
+    
+    solve(n, 1, 0, ans);
+    
+    return ans;
+}
