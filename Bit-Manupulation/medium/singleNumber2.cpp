@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/single-number-ii/
 
+
+// TC : O(32N), SC : O(1)
 int singleNumber(vector<int>& nums) {
     int ans = 0, n=nums.size();
 
@@ -18,4 +20,16 @@ int singleNumber(vector<int>& nums) {
     }
 
     return ans;
+}
+
+// another approach TC : O(N), SC : O(1)
+int singleNumberOptimized(vector<int>& nums) {
+    int ones = 0, twos = 0;
+
+    for(int n : nums){
+        ones = (ones ^ n) & ~twos;
+        twos = (twos ^ n) & ~ones;
+    }
+
+    return ones;
 }
