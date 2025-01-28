@@ -24,12 +24,24 @@ int singleNumber(vector<int>& nums) {
 
 // another approach TC : O(N), SC : O(1)
 int singleNumberOptimized(vector<int>& nums) {
+    // Variables to store intermediate results
+    // `ones` holds the XOR of numbers that have appeared exactly once
+    // `twos` holds the XOR of numbers that have appeared exactly twice
     int ones = 0, twos = 0;
 
-    for(int n : nums){
+    // Traverse through the array
+    for (int n : nums) {
+        // Update `ones`:
+        // Add the current number to `ones` if it hasn't already been added twice (`~twos` ensures this).
+        // Remove the number from `ones` if it's already there (via XOR).
         ones = (ones ^ n) & ~twos;
+
+        // Update `twos`:
+        // Add the current number to `twos` if it hasn't already been added once (`~ones` ensures this).
+        // Remove the number from `twos` if it's already there (via XOR).
         twos = (twos ^ n) & ~ones;
     }
 
+    // `ones` now contains the number that appears exactly once.
     return ones;
 }
