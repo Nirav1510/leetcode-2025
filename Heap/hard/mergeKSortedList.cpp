@@ -26,3 +26,37 @@ ListNode* mergeKLists(vector<ListNode*>& lists) {
     if (lists.empty()) return nullptr;
     return divideAndConquer(lists, 0, lists.size() - 1);
 }
+
+// ------- Using Min Heap -------
+struct Compare {
+    bool operator()(ListNode* a, ListNode* b) {
+        return a->val > b->val; // Min heap: smallest value at the top
+    }
+};
+
+ListNode* mergeKLists(vector<ListNode*>& lists) {
+    priority_queue<ListNode*, vector<ListNode*>, Compare> minHeap;
+
+    for (ListNode* list : lists) {
+        if (list) {
+            minHeap.push(list);
+        }
+    }
+
+    ListNode* dummy = new ListNode(0);
+    ListNode* tail = dummy;
+
+    while (!minHeap.empty()) {
+        ListNode* node = minHeap.top(); 
+        minHeap.pop();
+        
+        tail->next = node; 
+        tail = tail->next;  
+        
+        if (node->next) {
+            minHeap.push(node->next); 
+        }
+    }
+
+    return dummy->next;
+}
