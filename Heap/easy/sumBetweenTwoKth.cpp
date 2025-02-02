@@ -25,5 +25,6 @@ long long sumBetweenTwoKth(long long nums[], long long n, long long k1, long lon
             ans+= nums[i];
         }
     }
+    
     return ans;
 }
