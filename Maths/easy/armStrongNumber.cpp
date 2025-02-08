@@ -2,8 +2,7 @@
 
 
 bool armstrongNumber(int n) {
-    int curr = n;
-    int sum = 0;
+    int curr = n, sum = 0;
     
     while(curr){
         int ld = curr%10;
