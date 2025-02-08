@@ -15,3 +15,30 @@ vector<int> inorderTraversal(TreeNode* root) {
     getInOrder(root, ans);
     return ans;
 }
+
+// ----------- iterative approach -----------
+vector<int> inorderTraversal(TreeNode* root) {
+    vector<int> ans;
+    if(!root) return ans;
+
+    TreeNode* node = root;
+    stack<TreeNode*> s;
+
+    while(true){
+        if(node){
+            s.push(node);
+            node = node->left;
+        }else{
+            if(s.empty()){
+                break;
+            }
+            node = s.top();
+            s.pop();
+
+            ans.push_back(node->val);
+            node = node->right;
+        }
+    }
+
+    return ans;
+}
