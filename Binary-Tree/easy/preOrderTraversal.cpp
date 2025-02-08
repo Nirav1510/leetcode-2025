@@ -16,3 +16,24 @@ vector<int> preorderTraversal(TreeNode* root) {
     getPreOrder(root, ans);
     return ans;
 }
+
+// ------- iterative approach ------
+vector<int> preorderTraversal(TreeNode* root) {
+    vector<int> ans;
+    if(!root) return ans;
+
+    stack<TreeNode*> s;
+    s.push(root);
+
+    while(!s.empty()){
+        TreeNode* curr = s.top();
+        s.pop();
+
+        ans.push_back(curr->val);
+
+        if(curr->right) s.push(curr->right);
+        if(curr->left) s.push(curr->left);
+    }
+
+    return ans;
+}
