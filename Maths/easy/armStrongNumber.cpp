@@ -1,6 +1,5 @@
 // https://www.geeksforgeeks.org/problems/armstrong-numbers2727/1
 
-
 bool armstrongNumber(int n) {
     int curr = n, sum = 0;
     
