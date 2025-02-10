@@ -1,9 +1,7 @@
 // https://leetcode.com/problems/binary-tree-postorder-traversal/
 
 void getPostOrder(TreeNode *root, vector<int> &ans){
-    if(!root){
-        return;
-    }
+    if(!root) return;
 
     getPostOrder(root->left, ans);
     getPostOrder(root->right, ans);
