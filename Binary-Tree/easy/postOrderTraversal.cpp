@@ -5,6 +5,7 @@ void getPostOrder(TreeNode *root, vector<int> &ans){
 
     getPostOrder(root->left, ans);
     getPostOrder(root->right, ans);
+    
     ans.push_back(root->val);
 }
 
