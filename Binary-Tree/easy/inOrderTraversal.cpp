@@ -1,9 +1,7 @@
 // https://leetcode.com/problems/binary-tree-inorder-traversal/
 
 void getInOrder(TreeNode *root, vector<int> &ans){
-    if(!root){
-        return;
-    }
+    if(!root) return;
 
     getInOrder(root->left, ans);
     ans.push_back(root->val);
