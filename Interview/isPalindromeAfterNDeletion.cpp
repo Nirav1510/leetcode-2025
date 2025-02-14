@@ -26,11 +26,42 @@ bool isPalindromeAfterDeletion(string s, int n){
     return canBePalindrome(s, 0, s.length() - 1, n);
 }
 
+// ------- using Longest Palindrome Subsequence -------
+int longestPalindromicSubsequence(string s) {
+    int n = s.length();
+    vector<vector<int>> dp(n, vector<int>(n, 0));
+
+    // Base case: Single characters are palindromes of length 1
+    for (int i = 0; i < n; i++) dp[i][i] = 1;
+
+    // Fill DP table for substrings of length 2 to n
+    for (int len = 2; len <= n; len++) {
+        for (int i = 0; i <= n - len; i++) {
+            int j = i + len - 1;
+            if (s[i] == s[j]) {
+                dp[i][j] = 2 + dp[i + 1][j - 1];
+            } else {
+                dp[i][j] = max(dp[i + 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+
+    return dp[0][n - 1]; // LPS length
+}
+
+bool canBePalindrome(string s, int n) {
+    int lpsLength = longestPalindromicSubsequence(s);
+    return (s.length() - lpsLength) <= n;
+}
+
+
 int main(){
-    string s = "abcba";
+    string s = "abcdaedba";
     int n = 2;
 
-    cout << isPalindromeAfterDeletion(s,n) ? "true" : "false";
+    cout << isPalindromeAfterDeletion(s,n) ? "true" : "false" << endl;
+
+    cout << canBePalindrome(s,n) ? "true" : "false";
 
     return 0;
 }
