@@ -49,7 +49,7 @@ int longestPalindromicSubsequence(string s) {
     return dp[0][n - 1]; // LPS length
 }
 
-bool canBePalindrome(string s, int n) {
+bool checkCanBePalindrome(string s, int n) {
     int lpsLength = longestPalindromicSubsequence(s);
     return (s.length() - lpsLength) <= n;
 }
@@ -61,7 +61,7 @@ int main(){
 
     cout << isPalindromeAfterDeletion(s,n) ? "true" : "false" << endl;
 
-    cout << canBePalindrome(s,n) ? "true" : "false";
+    cout << checkCanBePalindrome(s,n) ? "true" : "false";
 
     return 0;
 }
