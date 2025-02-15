@@ -60,7 +60,6 @@ int main(){
     int n = 2;
 
     cout << isPalindromeAfterDeletion(s,n) ? "true" : "false" << endl;
-
     cout << checkCanBePalindrome(s,n) ? "true" : "false";
 
     return 0;
