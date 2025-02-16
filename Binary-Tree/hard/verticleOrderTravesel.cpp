@@ -36,3 +36,45 @@ vector<vector<int>> verticalTraversal(TreeNode* root) {
 
     return ans;
 }
+
+// ------- using BFS ---------
+
+vector<vector<int>> verticalTraversal(TreeNode* root) {
+    if (!root) return {};
+
+    map<int, vector<int>> mp; // Map keeps keys sorted
+    queue<pair<TreeNode*, int>> q; // (Node, vertical level)
+
+    q.push({root, 0}); // Root starts at vertical level 0
+
+    while (!q.empty()) {
+        int size = q.size();
+        // Temp vector to maintain order in current level
+        vector<pair<int, int>> temp;
+
+        for (int i = 0; i < size; i++) {
+            auto [node, vLevel] = q.front();
+            q.pop();
+
+            temp.push_back({vLevel, node->val});
+
+            if (node->left) q.push({node->left, vLevel - 1});
+            if (node->right) q.push({node->right, vLevel + 1});
+        }
+
+        // Sort temp by vertical level first, then left-to-right order
+        sort(temp.begin(), temp.end());
+
+        // Insert values into map
+        for (auto [vLevel, val] : temp) {
+            mp[vLevel].push_back(val);
+        }
+    }
+
+    vector<vector<int>> ans;
+    for (auto &entry : mp) {
+        ans.push_back(entry.second);
+    }
+
+    return ans;
+}
