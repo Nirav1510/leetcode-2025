@@ -14,7 +14,23 @@ void getLeftView(Node* root, vector<int> &ans){
     }else{
         getLeftView(root->right, ans);
     }
+}
+
+void getLeftViewIterative(Node* root, vector<int> &ans){
+    if(!root || isLeaf(root)) return;
+    Node* curr = root;
     
+    while(curr){
+        if(!isLeaf(curr)){
+            ans.push_back(curr->data);
+        }
+        
+        if(curr->left){
+            curr = curr->left;
+        }else{
+            curr = curr->right;
+        }
+    }
 }
 
 void getLeafNodes(Node* root, vector<int> &ans){
@@ -43,6 +59,29 @@ void getRightView(Node* root, vector<int> &ans){
     }
     
     ans.push_back(root->data);
+}
+
+void getRightViewIterative(Node* root, vector<int> &ans){
+    if(!root || isLeaf(root)) return;
+    
+    Node* curr = root;
+    vector<int> temp;
+
+    while(curr){
+        if(!isLeaf(curr)){
+            temp.push_back(curr->data);
+        }
+        
+        if(curr->right){
+            curr = curr->right;
+        }else{
+            curr = curr->left;
+        }
+    }
+    
+    for(int i=temp.size()-1;i>=0;i--){
+        ans.push_back(temp[i]);
+    }
 }
 
 vector<int> boundaryTraversal(Node *root) {
