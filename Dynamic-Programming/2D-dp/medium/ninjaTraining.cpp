@@ -1,5 +1,6 @@
 // https://www.geeksforgeeks.org/problems/geeks-training/1
 
+// TC : O(n*4*3), SC : O(n*4)
 int maximumPoints(vector<vector<int>>& arr) {
     int n = arr.size();
     vector<vector<int>> dp(n, vector<int>(4, 0));
