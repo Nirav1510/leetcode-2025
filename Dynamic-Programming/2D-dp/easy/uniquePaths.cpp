@@ -24,3 +24,17 @@ int uniquePaths(int m, int n) {
 
     return dp[m-1][n-1];
 }
+
+// ------ Mathmatical solution ------
+int uniquePaths(int m, int n) {
+    int N = m+n-2;
+    int r = m-1;
+    double res = 1;
+
+    for(int i=1;i<=r;i++){
+        res = res * (N-r+i);
+        res = res/i;
+    }
+
+    return (int)res;
+}
