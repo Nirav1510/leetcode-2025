@@ -1,5 +1,6 @@
 // https://www.geeksforgeeks.org/problems/minimal-cost/1
 
+// TC : O(n*k), SC : O(n)
 int minimizeCost(int k, vector<int>& arr) {
     int n = arr.size();
     vector<int> dp(n, -1);
