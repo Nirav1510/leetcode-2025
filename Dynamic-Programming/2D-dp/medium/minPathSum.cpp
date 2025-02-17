@@ -1,5 +1,7 @@
 // https://leetcode.com/problems/minimum-path-sum/
 
+
+// TC : O(m*n), SC : O(m*n)
 int minPathSum(vector<vector<int>>& grid) {
     int m = grid.size(), n = grid[0].size();
     vector<vector<int>> dp(m, vector<int>(n, 0));
