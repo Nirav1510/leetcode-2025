@@ -10,6 +10,7 @@ int minimumTotal(vector<vector<int>>& triangle) {
 
     for(int i=n-2;i>=0;i--){
         for(int j=i;j>=0;j--){
+            
             int down = triangle[i][j] + dp[i + 1][j];
             int diagonal = triangle[i][j] + dp[i + 1][j + 1];
 
