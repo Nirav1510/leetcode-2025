@@ -43,3 +43,14 @@ int knapSack(int c, vector<int> &val, vector<int> &wt) {
     int ans = solve(c, val, wt, n, dp);
     return ans;
 }
+
+// similar to 0-1 Knapsack
+
+// Unbounded Knapsack
+// Double Knapsack
+// Subset Sum
+// Coin Change – Count Ways
+// Coin Change – Min Coins
+// Partition Equal Subset Sum
+// Minimum Subset Sum Difference
+// Maximum Segments
