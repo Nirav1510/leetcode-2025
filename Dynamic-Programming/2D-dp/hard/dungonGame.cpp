@@ -25,3 +25,26 @@ int calculateMinimumHP(vector<vector<int>>& mat) {
 
     return dp[0][0];
 }
+
+
+// -------- top down approach ---------
+int helper(vector<vector<int>>& mat, int i, int j, vector<vector<int>>& dp){
+    if(i == mat.size() - 1 && j == mat[0].size() - 1){
+        return max(1, 1 - mat[i][j]);
+    }
+
+    if(dp[i][j] != -1) return dp[i][j];
+
+    int down = helper(mat, i+1, j, dp);
+    int right = helper(mat, i, j+1, dp);
+
+    int minHealth = min(down, right) - mat[i][j];
+    return dp[i][j] = max(1, minHealth);
+}
+
+int calculateMinimumHP(vector<vector<int>>& mat) {
+    int m = mat.size(), n = mat[0].size();
+    vector<vector<int>> dp(m, vector<int>(n, -1));
+
+    return helper(mat, 0, 0, dp);
+}
