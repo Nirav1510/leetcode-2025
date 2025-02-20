@@ -45,7 +45,7 @@ void getLeafNodes(Node* root, vector<int> &ans){
         getLeafNodes(root->left, ans);
     }
     if(root->right){
-            getLeafNodes(root->right, ans);
+        getLeafNodes(root->right, ans);
     }
 }
 
