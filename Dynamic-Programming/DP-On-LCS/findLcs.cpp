@@ -38,3 +38,18 @@ int lcs(string& a, string& b) {
     
     return solve(a, b, n, m, dp);
 }
+
+// Similar to lcs
+
+// LCS of 3 Strings
+// Printing LCS
+// Longest Palindromic Subsequence
+// Shortest Common SuperSequence
+// Minimum Insertions and Deletions
+// Edit Distance
+// Minimum Insertions for Palindrome
+// Longest Common Substring
+// Longest Palindromic Substring
+// Longest Repeated Subsequence
+// Count Distinct Subsequences
+// Regular Expression Matching
