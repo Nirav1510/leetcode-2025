@@ -63,6 +63,5 @@ int longestPalindromeSubSequence(string a) {
         }
         prev = curr;
     }
-    
     return prev[m];
 }
