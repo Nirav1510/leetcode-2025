@@ -1,6 +1,5 @@
 // https://www.geeksforgeeks.org/problems/longest-common-subsequence-1587115620/1
 
-
 // ------- Bottom-Up ---------
 int lcs(string& a, string& b) {
     int n = a.size(), m = b.size();
@@ -15,7 +14,6 @@ int lcs(string& a, string& b) {
             }
         }
     }
-    
     return dp[n][m];
 }
 
