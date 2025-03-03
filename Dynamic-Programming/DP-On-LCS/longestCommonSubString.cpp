@@ -15,5 +15,6 @@ int longestCommonSubstr(string& a, string& b) {
             }
         }
     }
+    
     return ans;
 }
