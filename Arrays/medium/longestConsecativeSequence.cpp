@@ -5,10 +5,12 @@ int longestConsecutive(vector<int>& nums) {
     unordered_set<int> s(nums.begin(),nums.end());
 
     for(int n : nums){
+        // check if it is the start of a sequence
         if(!s.count(n-1)){
             int count = 1;
             int currNum = n;
 
+            // count the length of the sequence
             while(s.count(currNum + 1)){
                 currNum++;
                 count++;
@@ -17,5 +19,30 @@ int longestConsecutive(vector<int>& nums) {
         }
     }
 
+    return ans;
+}
+
+int longestConsecutive(vector<int>& nums) {
+    if (nums.empty()) return 0;
+
+    sort(nums.begin(), nums.end());
+
+    int ans = 1;
+    int count = 1;
+
+    for (int i = 1; i < nums.size(); i++) {
+        if (nums[i] == nums[i - 1]) {
+            // skip duplicates
+            continue;
+        }
+        if (nums[i] == nums[i - 1] + 1) {
+            count++;
+        } else {
+            ans = max(ans, count);
+            count = 1; // reset for new sequence
+        }
+    }
+
+    ans = max(ans, count); // handle last sequence
     return ans;
 }
