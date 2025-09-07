@@ -22,6 +22,7 @@ int longestConsecutive(vector<int>& nums) {
     return ans;
 }
 
+// brute force
 int longestConsecutive(vector<int>& nums) {
     if (nums.empty()) return 0;
 
