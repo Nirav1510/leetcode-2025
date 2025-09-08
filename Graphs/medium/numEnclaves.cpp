@@ -54,3 +54,48 @@ int numEnclaves(vector<vector<int>>& mat) {
 
     return ans;
 }
+
+// BFS approach
+int numEnclavesBFS(vector<vector<int>>& mat) {
+    int n = mat.size(), m = mat[0].size();
+    vector<vector<bool>> vis(n, vector<bool>(m, false));
+    queue<pair<int, int>> q;
+    
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if((i == 0 || j == 0 || i == n-1 || j == m-1) && !vis[i][j] && mat[i][j] == 1){
+                q.push({i, j});
+                vis[i][j] = true;
+            }
+        }
+    }
+
+    int dx[] = {-1, 0, 1, 0};
+    int dy[] = {0, -1, 0, 1};
+    
+    while(!q.empty()){
+        auto [row, col] = q.front();
+        q.pop();
+        
+        for(int i=0;i<4;i++){
+            int nRow = row + dx[i];
+            int nCol = col + dy[i];
+            
+            if(nRow >=0 && nRow < n && nCol >=0 && nCol < m && !vis[nRow][nCol] && mat[nRow][nCol] == 1){
+                q.push({nRow, nCol});
+                vis[nRow][nCol] = true;
+            }
+        }
+    }
+    
+    int ans = 0;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if(!vis[i][j] && mat[i][j] == 1){
+                ans++;
+            }
+        }
+    }
+
+    return ans;
+}
